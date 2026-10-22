@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="A du'a page from the Omilabu family for the late Barrister Abdul Razaq Olufemi Abudu, with prayers in Arabic, transliteration and meaning.">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Barrister Abudu Memorial</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* Layout: one quiet scroll. A mihrab arch with a hanging lamp opens the page, then the names, the prayers (tabbed reader), a dhikr counter, the family wall and a closing from the family. */
+:root{
+  --ground:#eef2ee;
+  --paper:#f8faf7;
+  --ink:#10261f;
+  --soft:#445d55;
+  --emerald:#0e6b52;
+  --emerald-deep:#0a4a39;
+  --gold:#9a7424;
+  --gold-soft:#d6bb7e;
+  --line:#c7d4cb;
+  --glow:rgba(214,187,126,.40);
+  --on-emerald:#f4f8f5;
+  --arch-a:#0e6b52;
+  --arch-b:#0a3f32;
+  --f-display:"Cormorant Garamond",Georgia,serif;
+  --f-body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-ar:"Amiri","Scheherazade New","Noto Naskh Arabic","Traditional Arabic",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#08140f;--paper:#0e1d17;--ink:#e7efe9;--soft:#a0b6ab;--emerald:#46b894;--emerald-deep:#7fd3b5;
+    --gold:#d9b65f;--gold-soft:#8a6f36;--line:#22382e;--glow:rgba(217,182,95,.30);--on-emerald:#06130e;
+    --arch-a:#13533f;--arch-b:#0a2d24;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#08140f;--paper:#0e1d17;--ink:#e7efe9;--soft:#a0b6ab;--emerald:#46b894;--emerald-deep:#7fd3b5;
+  --gold:#d9b65f;--gold-soft:#8a6f36;--line:#22382e;--glow:rgba(217,182,95,.30);--on-emerald:#06130e;
+  --arch-a:#13533f;--arch-b:#0a2d24;color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ground);color:var(--ink);
+  font-family:var(--f-body);font-size:17px;line-height:1.65;
+  padding-block:0 3rem;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ground)}
+.wrap{max-width:1080px;margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--emerald);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--emerald);outline-offset:3px}
+.ar{font-family:var(--f-ar);direction:rtl;font-weight:400}
+.eyebrow{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--emerald-deep);font-weight:600}
+
+/* top bar */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);border-bottom:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:.25rem 1.5rem;align-items:center;justify-content:space-between;padding-block:.7rem}
+.nav .brand{font-family:var(--f-display);font-size:1.15rem;font-weight:600;letter-spacing:.02em}
+.nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav a{font-size:.88rem;text-decoration:none;color:var(--soft);font-weight:500}
+.nav a:hover{color:var(--emerald)}
+
+/* hero */
+.hero{position:relative;padding-block:3rem 3.5rem;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:2.5rem;align-items:center}
+.geo{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 60% 70% at 72% 45%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 72% 45%,#000 0%,transparent 75%)}
+.geo *{stroke:var(--line);fill:none}
+.geo rect.fillbg{fill:url(#star);stroke:none}
+.hero-copy,.hero-arch{position:relative;z-index:1;min-width:0}
+.bismillah{font-size:clamp(1.5rem,3.6vw,2.1rem);color:var(--gold);line-height:1.8;text-align:left;direction:rtl;display:block}
+.hero h1{margin-top:.9rem;font-size:clamp(2.3rem,6.4vw,4.3rem)}
+.hero h1 .title{display:block;font-size:.42em;font-style:italic;font-weight:500;color:var(--soft);letter-spacing:.04em;margin-bottom:.2rem}
+.rahima{font-size:1.7rem;color:var(--gold);margin-top:.6rem;display:block;text-align:left}
+.lead{margin-top:1.2rem;max-width:34rem;color:var(--soft);font-size:1.05rem}
+.inna{margin-top:1.4rem;padding-top:1.1rem;border-top:1px solid var(--line);max-width:34rem}
+.inna .ar{font-size:1.5rem;line-height:1.9;text-align:left;color:var(--ink)}
+.inna .tr{font-style:italic;color:var(--emerald-deep);font-size:.98rem}
+.inna .en{color:var(--soft);font-size:.92rem}
+.cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+.btn{font:inherit;font-weight:600;font-size:.95rem;border:1px solid var(--emerald);background:var(--emerald);color:var(--on-emerald);padding:.65rem 1.25rem;border-radius:3px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--emerald)}
+.hero-arch{display:flex;justify-content:center}
+.hero-arch svg{width:min(100%,340px);height:auto;display:block;overflow:visible}
+.flame{transform-origin:150px 90px;animation:flick 3.6s ease-in-out infinite}
+@keyframes flick{0%,100%{opacity:.95;transform:scale(1)}40%{opacity:.8;transform:scale(.94)}70%{opacity:1;transform:scale(1.05)}}
+
+/* sections */
+section{padding-block:3.5rem}
+.sec-head{display:grid;gap:.6rem;margin-bottom:2rem;max-width:40rem}
+.sec-head h2{font-size:clamp(1.9rem,4.6vw,2.9rem)}
+.sec-head p{color:var(--soft)}
+.rule{border:0;border-top:1px solid var(--line);margin:0}
+
+/* names */
+.names{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+.name-card{border:1px solid var(--line);background:var(--paper);padding:1.5rem;display:grid;gap:.5rem;min-width:0}
+.name-card .big{font-family:var(--f-display);font-size:2rem;line-height:1.1}
+.name-card .big.ar{font-family:var(--f-ar);font-size:2.6rem;color:var(--gold);line-height:1.5;text-align:left}
+.name-card .mean{color:var(--soft)}
+.tribute{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.5rem;margin-top:2.5rem}
+.tribute p+p{margin-top:1rem}
+.tribute .big-q{font-family:var(--f-display);font-style:italic;font-size:1.7rem;line-height:1.3;color:var(--emerald-deep)}
+.three{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}
+.three div{border-top:2px solid var(--gold);padding-top:.9rem}
+.three h3{font-size:1.35rem;margin-bottom:.35rem}
+.three p{color:var(--soft);font-size:.96rem}
+
+/* reader */
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;border-bottom:1px solid var(--line)}
+.tab{font:inherit;font-weight:600;font-size:.95rem;background:none;border:0;border-bottom:3px solid transparent;color:var(--soft);padding:.7rem 1rem;cursor:pointer;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--emerald-deep);border-bottom-color:var(--gold)}
+.controls{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center;justify-content:space-between;margin-block:1.2rem}
+.toggles{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font:inherit;font-size:.86rem;font-weight:500;border:1px solid var(--line);background:var(--paper);color:var(--soft);padding:.4rem .85rem;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--emerald);border-color:var(--emerald);color:var(--on-emerald)}
+.sizer{display:flex;align-items:center;gap:.5rem;font-size:.86rem;color:var(--soft)}
+.sizer button{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:2.2rem;height:2.2rem;border-radius:3px;cursor:pointer}
+.progress{margin-bottom:1.6rem}
+.progress .txt{font-size:.88rem;color:var(--soft);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.bar{height:5px;background:var(--line);margin-top:.4rem;border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--emerald);transition:width .4s}
+.cards{display:grid;gap:1.4rem}
+.card{background:var(--paper);border:1px solid var(--line);padding:clamp(1.1rem,3vw,2rem);min-width:0}
+.card header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.3rem 1rem;margin-bottom:.4rem}
+.card h3{font-size:1.65rem}
+.card .src{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald-deep);font-weight:600}
+.card .intro{color:var(--soft);font-size:.95rem;margin-bottom:.8rem;max-width:42rem}
+.line{padding-block:1rem;border-top:1px solid var(--line)}
+.line:first-of-type{border-top:0}
+.line .ar{font-size:calc(1.75rem * var(--ar-scale,1));line-height:2.15;text-align:right}
+.line .tr{font-style:italic;color:var(--emerald-deep);margin-top:.15rem;font-size:1rem}
+.line .en{color:var(--soft);margin-top:.15rem;font-size:.97rem}
+.reader[data-tr="off"] .line .tr{display:none}
+.reader[data-en="off"] .line .en{display:none}
+.card .note{font-size:.88rem;color:var(--soft);border-left:3px solid var(--gold);padding-left:.8rem;margin-top:.6rem}
+.actions{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.abtn{font:inherit;font-size:.88rem;font-weight:600;border:1px solid var(--line);background:transparent;color:var(--ink);padding:.5rem 1rem;border-radius:3px;cursor:pointer}
+.abtn:hover{border-color:var(--emerald);color:var(--emerald)}
+.abtn[aria-pressed="true"]{background:var(--emerald);border-color:var(--emerald);color:var(--on-emerald)}
+.abtn.ameen{border-color:var(--gold)}
+
+/* dhikr */
+.dhikr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.5rem;align-items:center}
+.dh-pick{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.counter{position:relative;width:min(78vw,300px);aspect-ratio:1;max-width:100%;border:0;background:var(--paper);border-radius:50%;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.1rem;color:var(--ink);margin-inline:auto;box-shadow:0 0 0 1px var(--line)}
+.counter svg{position:absolute;inset:0;width:100%;height:100%}
+.ring-bg{fill:none;stroke:var(--line);stroke-width:5}
+.ring-fg{fill:none;stroke:var(--emerald);stroke-width:5;stroke-linecap:round;stroke-dasharray:552.92;stroke-dashoffset:552.92;transition:stroke-dashoffset .25s}
+.counter .c-ar{font-family:var(--f-ar);font-size:2rem;color:var(--gold);line-height:1.5;position:relative}
+.counter .c-num{font-family:var(--f-display);font-size:4.2rem;font-weight:600;line-height:1;position:relative;font-variant-numeric:tabular-nums}
+.counter .c-of{font-size:.82rem;color:var(--soft);position:relative}
+.counter:active{transform:scale(.985)}
+.dh-meta{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center;margin-top:1.1rem;font-size:.9rem;color:var(--soft)}
+.linkbtn{font:inherit;font-size:.88rem;background:none;border:0;color:var(--emerald);text-decoration:underline;cursor:pointer;padding:0}
+.done{color:var(--emerald-deep);font-weight:600}
+
+/* wall */
+.wall{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:2.5rem;align-items:start}
+form.leave{display:grid;gap:.9rem;background:var(--paper);border:1px solid var(--line);padding:1.4rem}
+form.leave label{font-size:.85rem;font-weight:600;display:grid;gap:.3rem}
+form.leave input,form.leave select,form.leave textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--ground);border:1px solid var(--line);padding:.6rem .7rem;border-radius:3px;width:100%;min-width:0}
+form.leave textarea{min-height:7rem;resize:vertical}
+.count{font-size:.78rem;color:var(--soft);font-weight:400}
+.hint{font-size:.84rem;color:var(--soft);margin-top:.8rem}
+.entries{display:grid;gap:1rem}
+.entry{background:var(--paper);border:1px solid var(--line);padding:1.1rem 1.3rem;min-width:0}
+.entry .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--emerald-deep);font-weight:600}
+.entry p{margin-top:.4rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.entry .by{margin-top:.6rem;font-size:.84rem;color:var(--soft)}
+.empty{border:1px dashed var(--line);padding:1.6rem;color:var(--soft)}
+.empty strong{display:block;font-family:var(--f-display);font-size:1.4rem;color:var(--ink);font-weight:600;margin-bottom:.3rem}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:3rem 1rem;text-align:center;display:grid;gap:.8rem;justify-items:center}
+footer .from{font-family:var(--f-display);font-size:clamp(2rem,6vw,3.4rem);font-weight:600;line-height:1.1}
+footer .ar{font-size:1.9rem;color:var(--gold);line-height:1.9}
+footer .small{font-size:.86rem;color:var(--soft);max-width:34rem}
+
+#toast{position:fixed;left:50%;bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--ground);padding:.55rem 1rem;border-radius:3px;font-size:.88rem;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:20;max-width:90vw}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:minmax(0,1fr);padding-block:2rem 2.5rem}
+  .hero-arch{order:-1}
+  .hero-arch svg{width:min(70%,260px)}
+  .tribute,.dhikr,.wall{grid-template-columns:minmax(0,1fr);gap:1.8rem}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .names{grid-template-columns:minmax(0,1fr)}
+  section{padding-block:2.5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .flame{animation:none}
+  .bar i,.ring-fg,#toast{transition:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Page sections">
+  <span class="brand">Omilabu Family</span>
+  <ul>
+    <li><a href="#names">His name</a></li>
+    <li><a href="#prayers">Prayers</a></li>
+    <li><a href="#dhikr">Dhikr</a></li>
+    <li id="navWall" hidden><a href="#wall">Family wall</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <svg class="geo" aria-hidden="true" focusable="false">
+    <defs>
+      <pattern id="star" width="76" height="76" patternUnits="userSpaceOnUse">
+        <rect x="14" y="14" width="48" height="48" stroke-width="1"/>
+        <rect x="14" y="14" width="48" height="48" stroke-width="1" transform="rotate(45 38 38)"/>
+        <circle cx="38" cy="38" r="7" stroke-width="1"/>
+        <path d="M0 38h14M62 38h14M38 0v14M38 62v14" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect class="fillbg" width="100%" height="100%"/>
+  </svg>
+
+  <div class="hero-copy">
+    <span class="bismillah ar" lang="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+    <p class="eyebrow" style="margin-top:1rem">In loving memory</p>
+    <h1><span class="title">Barrister</span>Abdul Razaq Olufemi Abudu</h1>
+    <span class="rahima ar" lang="ar">رَحِمَهُ اللَّهُ</span>
+    <p class="lead">This page belongs to his family. Everything on it is for him: prayers to read, dhikr to count in his name, and a reminder of the three deeds that keep reaching him.</p>
+    <div class="inna">
+      <p class="ar" lang="ar">إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</p>
+      <p class="tr">Inna lillahi wa inna ilayhi raji'un</p>
+      <p class="en">Indeed we belong to Allah, and indeed to Him we return.</p>
+    </div>
+    <div class="cta">
+      <a class="btn" href="#prayers">Begin the prayers</a>
+      <a class="btn ghost" href="#dhikr">Count dhikr for him</a>
+      <a class="btn ghost" id="ctaWall" href="#wall" hidden>Leave a word</a>
+    </div>
+  </div>
+
+  <div class="hero-arch" aria-hidden="true">
+    <svg viewBox="0 0 300 430" role="img">
+      <defs>
+        <linearGradient id="archfill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color:var(--arch-a)"/>
+          <stop offset="1" style="stop-color:var(--arch-b)"/>
+        </linearGradient>
+        <radialGradient id="lampglow" cx="50%" cy="50%" r="50%">
+          <stop offset="0" style="stop-color:var(--gold-soft);stop-opacity:.9"/>
+          <stop offset="1" style="stop-color:var(--gold-soft);stop-opacity:0"/>
+        </radialGradient>
+      </defs>
+      <path d="M8 430V192C8 112 80 52 150 4C220 52 292 112 292 192V430Z" fill="none" style="stroke:var(--gold)" stroke-width="2"/>
+      <path d="M22 430V194C22 120 88 64 150 22C212 64 278 120 278 194V430Z" fill="url(#archfill)"/>
+      <path d="M36 430V196C36 130 94 78 150 40C206 78 264 130 264 196V430Z" fill="none" style="stroke:var(--gold-soft)" stroke-width="1" opacity=".7"/>
+      <!-- hanging lamp -->
+      <line x1="150" y1="24" x2="150" y2="62" style="stroke:var(--gold)" stroke-width="1.4"/>
+      <circle class="flame" cx="150" cy="88" r="34" fill="url(#lampglow)"/>
+      <path d="M137 62h26l-4 10h-18z" style="fill:var(--gold)"/>
+      <path d="M134 74q-7 26 16 38q23-12 16-38z" style="fill:none;stroke:var(--gold)" stroke-width="2"/>
+      <ellipse class="flame" cx="150" cy="92" rx="5" ry="9" style="fill:var(--gold-soft)"/>
+      <!-- name -->
+      <text x="150" y="238" text-anchor="middle" style="font-family:var(--f-ar);font-size:60px;fill:#f4ead0" direction="rtl">عبد الرزاق</text>
+      <!-- star band -->
+      <g style="stroke:var(--gold);fill:none" stroke-width="1.2">
+        <g transform="translate(150 318)"><rect x="-18" y="-18" width="36" height="36"/><rect x="-18" y="-18" width="36" height="36" transform="rotate(45)"/></g>
+        <g transform="translate(88 318) scale(.55)"><rect x="-18" y="-18" width="36" height="36"/><rect x="-18" y="-18" width="36" height="36" transform="rotate(45)"/></g>
+        <g transform="translate(212 318) scale(.55)"><rect x="-18" y="-18" width="36" height="36"/><rect x="-18" y="-18" width="36" height="36" transform="rotate(45)"/></g>
+        <path d="M50 318h20M230 318h20" opacity=".7"/>
+      </g>
+      <text x="150" y="388" text-anchor="middle" style="font-family:var(--f-body);font-size:11px;letter-spacing:3px;fill:#d8c89a">THE OMILABU FAMILY</text>
+    </svg>
+  </div>
+</header>
+
+<hr class="rule">
+
+<!-- NAMES + TRIBUTE -->
+<section id="names">
+  <div class="sec-head">
+    <p class="eyebrow">Who he was to us</p>
+    <h2>To the world a barrister. To us, Uncle.</h2>
+    <p>His names carry a whole way of living. We kept coming back to them while we wrote this page.</p>
+  </div>
+
+  <div class="names">
+    <div class="name-card">
+      <p class="eyebrow">Abdul Razaq</p>
+      <p class="big ar" lang="ar">عَبْدُ الرَّزَّاقِ</p>
+      <p class="mean">Servant of Ar-Razzaq, the Provider. One of the most beautiful names of Allah, the One who gives sustenance to everything He created.</p>
+    </div>
+    <div class="name-card">
+      <p class="eyebrow">Olufemi</p>
+      <p class="big">Olúfẹ́mi</p>
+      <p class="mean">Yoruba for “God loves me.” The name he carried from the family he came from, a reminder to trust in a love that does not leave.</p>
+    </div>
+  </div>
+
+  <div class="tribute">
+    <div>
+      <p class="big-q">We cannot give him anything now except what the Prophet ﷺ taught us still reaches him.</p>
+    </div>
+    <div>
+      <p>Grief wants somewhere to go. We built this page so that ours could go into prayer. A man of the law spent his life weighing what was just and what was merciful. Today we ask the One who is most Just and most Merciful to weigh him gently.</p>
+      <p>Read a prayer. Say ameen. Count a dhikr in his name. Then send this page to someone in the family, so that all of us who loved him are praying for him together.</p>
+    </div>
+  </div>
+
+  <div class="three">
+    <div>
+      <h3>Ongoing charity</h3>
+      <p>Give something in his name and let it keep giving: a meal, a school fee, a well, a share in a mosque. Any good that continues counts.</p>
+    </div>
+    <div>
+      <h3>Knowledge that helps</h3>
+      <p>Pass on what you learned from him. A lesson told to a younger cousin is knowledge that is still being benefited from.</p>
+    </div>
+    <div>
+      <h3>A child who prays</h3>
+      <p>Those he loved are the ones who can pray for him. Teach the children of this family his name, and teach them to say it in du'a.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- PRAYERS -->
+<section id="prayers">
+  <div class="sec-head">
+    <p class="eyebrow">Prayers for him</p>
+    <h2>Read, say ameen, and make du'a</h2>
+    <p>Every prayer is in Arabic with an English transliteration and its meaning. Use the buttons to show or hide each, or to make the Arabic larger.</p>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Prayer groups" id="tabs"></div>
+
+  <div class="reader" id="reader" data-tr="on" data-en="on">
+    <div class="controls">
+      <div class="toggles">
+        <button class="chip" id="tTr" aria-pressed="true" type="button">Transliteration</button>
+        <button class="chip" id="tEn" aria-pressed="true" type="button">Meaning</button>
+      </div>
+      <div class="sizer">
+        <span>Arabic size</span>
+        <button type="button" id="szDown" aria-label="Smaller Arabic text">A−</button>
+        <button type="button" id="szUp" aria-label="Larger Arabic text">A+</button>
+      </div>
+    </div>
+    <div class="progress">
+      <div class="txt"><span id="progTxt"></span><button class="linkbtn" id="progReset" type="button">Clear marks</button></div>
+      <div class="bar"><i id="progBar"></i></div>
+    </div>
+    <div class="cards" id="cards" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- DHIKR -->
+<section id="dhikr">
+  <div class="dhikr">
+    <div>
+      <p class="eyebrow">Dhikr in his name</p>
+      <h2 style="font-size:clamp(1.9rem,4.6vw,2.9rem);margin-top:.6rem">Count remembrance for him</h2>
+      <p style="color:var(--soft);margin-top:.8rem;max-width:30rem">Choose a phrase, tap the circle, and ask Allah to accept it and grant its reward to Barrister Abdul Razaq Olufemi Abudu. Counts stay on this device.</p>
+      <div class="dh-pick" id="dhPick" role="group" aria-label="Choose a dhikr"></div>
+      <div class="dh-meta">
+        <span id="dhTotal"></span>
+        <button class="linkbtn" id="dhReset" type="button">Start this round again</button>
+      </div>
+      <p id="dhDone" class="done" hidden style="margin-top:.8rem">Round complete. Allahumma taqabbal: O Allah, accept it.</p>
+    </div>
+    <button class="counter" id="counter" type="button" aria-label="Tap to count one">
+      <svg viewBox="0 0 200 200" aria-hidden="true"><circle class="ring-bg" cx="100" cy="100" r="88"/><circle class="ring-fg" id="ringFg" cx="100" cy="100" r="88" transform="rotate(-90 100 100)"/></svg>
+      <span class="c-ar" id="cAr" lang="ar"></span>
+      <span class="c-num" id="cNum">0</span>
+      <span class="c-of" id="cOf"></span>
+    </button>
+  </div>
+</section>
+
+<hr class="rule" id="wallRule" hidden>
+
+<!-- WALL (shown only when the Google Form is configured in the script) -->
+<section id="wall" hidden>
+  <div class="sec-head">
+    <p class="eyebrow">The family wall</p>
+    <h2>A word for him, and for each other</h2>
+    <p>Leave a du'a, a memory, or something he taught you. Everyone who visits this page can read what is written here, so please write only what you are happy for the whole family to see.</p>
+  </div>
+  <div class="wall">
+    <div>
+      <form class="leave" id="wallForm">
+        <label for="wName">Your name
+          <input id="wName" type="text" maxlength="60" autocomplete="name" placeholder="Your name, or how he knew you">
+        </label>
+        <label for="wKind">This is
+          <select id="wKind">
+            <option value="A du'a for him">A du'a for him</option>
+            <option value="A memory">A memory</option>
+            <option value="Something he taught me">Something he taught me</option>
+          </select>
+        </label>
+        <label for="wText">Your words <span class="count" id="wCount">0 / 500</span>
+          <textarea id="wText" maxlength="500" placeholder="Write what is in your heart. Ameen."></textarea>
+        </label>
+        <button class="btn" type="submit" id="wSend">Leave on the wall</button>
+      </form>
+      <p class="hint">New messages can take a few minutes to show for everyone. <a id="wallFormLink" href="#" target="_blank" rel="noopener" hidden>Open the form directly</a></p>
+    </div>
+    <div class="entries" id="wallList" aria-live="polite">
+      <div class="empty"><strong>Nothing here yet</strong>The first du'a written on this wall will appear here for the whole family to read.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <p class="eyebrow">With love and du'a, from</p>
+  <p class="from">The Omilabu Family</p>
+  <p class="ar" lang="ar">اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ</p>
+  <p class="small">O Allah, forgive him and have mercy on him. Grant him the highest rank in Jannah, and grant patience and comfort to everyone who loved him. Ameen.</p>
+  <a class="btn ghost" href="#top">Back to the top</a>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- helpers ---------- */
+var $=function(s,r){return (r||document).querySelector(s)};
+function el(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n}
+var store={
+  get:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+  set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+var toastT=0;
+function toast(msg){var t=$("#toast");t.textContent=msg;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove("on")},2200)}
+
+/* ---------- prayer data ---------- */
+var PRAYERS={
+him:[
+{id:"janazah",title:"Forgiveness, mercy and a wide resting place",src:"Sahih Muslim",
+ intro:"A supplication the Prophet ﷺ taught for the one who has passed away.",
+ note:"The words “a family better than his family” are explained by scholars as the blessing of Paradise. They take nothing away from the love of the family he leaves behind.",
+ lines:[
+ ["اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ","Allahummaghfir lahu warhamhu","O Allah, forgive him and have mercy on him."],
+ ["وَعَافِهِ وَاعْفُ عَنْهُ","Wa 'afihi wa'fu 'anhu","Grant him well-being and pardon him."],
+ ["وَأَكْرِمْ نُزُلَهُ وَوَسِّعْ مُدْخَلَهُ","Wa akrim nuzulahu wa wassi' mudkhalahu","Honour his resting place and make his entrance wide."],
+ ["وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ","Waghsilhu bil-ma'i wath-thalji wal-barad","Wash him with water, snow and hail."],
+ ["وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الْأَبْيَضَ مِنَ الدَّنَسِ","Wa naqqihi minal-khataya kama naqqaytath-thawbal-abyada minad-danas","Cleanse him of his sins as a white garment is cleansed of dirt."],
+ ["وَأَبْدِلْهُ دَارًا خَيْرًا مِنْ دَارِهِ وَأَهْلًا خَيْرًا مِنْ أَهْلِهِ","Wa abdilhu daran khayran min darihi wa ahlan khayran min ahlih","Give him a home better than his home, and a family better than his family."],
+ ["وَأَدْخِلْهُ الْجَنَّةَ وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ وَمِنْ عَذَابِ النَّارِ","Wa adkhilhul-jannah, wa a'idhhu min 'adhabil-qabri wa min 'adhabin-nar","Admit him to Paradise, and protect him from the punishment of the grave and the punishment of the Fire."]
+ ]},
+{id:"rank",title:"Raise his rank, fill his grave with light",src:"Sahih Muslim",
+ intro:"The Prophet ﷺ prayed these words for a Companion who had passed away.",
+ lines:[
+ ["اللَّهُمَّ اغْفِرْ لَهُ وَارْفَعْ دَرَجَتَهُ فِي الْمَهْدِيِّينَ","Allahummaghfir lahu warfa' darajatahu fil-mahdiyyin","O Allah, forgive him and raise his rank among those who are guided."],
+ ["وَاخْلُفْهُ فِي عَقِبِهِ فِي الْغَابِرِينَ","Wakhlufhu fi 'aqibihi fil-ghabirin","Be his successor among those he left behind."],
+ ["وَاغْفِرْ لَنَا وَلَهُ يَا رَبَّ الْعَالَمِينَ","Waghfir lana wa lahu ya Rabbal-'alamin","Forgive us and him, O Lord of the worlds."],
+ ["وَافْسَحْ لَهُ فِي قَبْرِهِ وَنَوِّرْ لَهُ فِيهِ","Wafsah lahu fi qabrihi wa nawwir lahu fih","Make his grave spacious for him and fill it with light."]
+ ]},
+{id:"thabbit",title:"Steadfastness for him",src:"Sunan Abi Dawud",
+ intro:"After a burial the Prophet ﷺ would tell the people to ask forgiveness for their brother and to ask that he be made steadfast.",
+ lines:[
+ ["اللَّهُمَّ اغْفِرْ لَهُ","Allahummaghfir lahu","O Allah, forgive him."],
+ ["اللَّهُمَّ ثَبِّتْهُ","Allahumma thabbithu","O Allah, make him steadfast."]
+ ]},
+{id:"all",title:"Forgive the living and the dead",src:"Sunan Abi Dawud, al-Tirmidhi",
+ intro:"A prayer that gathers him, and all of us, into one request for forgiveness.",
+ lines:[
+ ["اللَّهُمَّ اغْفِرْ لِحَيِّنَا وَمَيِّتِنَا","Allahummaghfir li-hayyina wa mayyitina","O Allah, forgive our living and our dead,"],
+ ["وَشَاهِدِنَا وَغَائِبِنَا","Wa shahidina wa gha'ibina","those present and those absent,"],
+ ["وَصَغِيرِنَا وَكَبِيرِنَا","Wa saghirina wa kabirina","our young and our old,"],
+ ["وَذَكَرِنَا وَأُنْثَانَا","Wa dhakarina wa unthana","our men and our women."]
+ ]}
+],
+quran:[
+{id:"fatiha",title:"Al-Fatihah, The Opening",src:"Qur'an 1:1-7",
+ intro:"The opening of the Book. Read it with him in mind, then raise your hands in du'a.",
+ lines:[
+ ["بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ","Bismillahir-Rahmanir-Rahim","In the name of Allah, the Most Gracious, the Most Merciful."],
+ ["الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ","Alhamdu lillahi Rabbil-'alamin","All praise is for Allah, Lord of all the worlds."],
+ ["الرَّحْمَٰنِ الرَّحِيمِ","Ar-Rahmanir-Rahim","The Most Gracious, the Most Merciful."],
+ ["مَالِكِ يَوْمِ الدِّينِ","Maliki yawmid-din","Master of the Day of Judgment."],
+ ["إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ","Iyyaka na'budu wa iyyaka nasta'in","You alone we worship, and You alone we ask for help."],
+ ["اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ","Ihdinas-siratal-mustaqim","Guide us to the straight path,"],
+ ["صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ","Siratal-ladhina an'amta 'alayhim, ghayril-maghdubi 'alayhim wa lad-dallin","the path of those You have blessed, not of those who earned Your anger, nor of those who went astray."]
+ ]},
+{id:"kursi",title:"Ayat al-Kursi, The Verse of the Throne",src:"Qur'an 2:255",
+ intro:"The greatest verse of the Qur'an, on the life, the knowledge and the care of Allah that never tires.",
+ lines:[
+ ["اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ","Allahu la ilaha illa huwa, al-Hayyul-Qayyum","Allah: there is no god but Him, the Ever-Living, the Sustainer of all existence."],
+ ["لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ","La ta'khudhuhu sinatun wa la nawm. Lahu ma fis-samawati wa ma fil-ard","Neither drowsiness nor sleep overtakes Him. To Him belongs all that is in the heavens and the earth."],
+ ["مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ","Man dhal-ladhi yashfa'u 'indahu illa bi-idhnih. Ya'lamu ma bayna aydihim wa ma khalfahum","Who can intercede with Him except by His permission? He knows what is before them and what is behind them."],
+ ["وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ","Wa la yuhituna bi-shay'in min 'ilmihi illa bima sha'. Wasi'a kursiyyuhus-samawati wal-ard","They encompass nothing of His knowledge except what He wills. His Throne extends over the heavens and the earth."],
+ ["وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ","Wa la ya'uduhu hifzuhuma, wa huwal-'Aliyyul-'Azim","Guarding them does not weary Him, and He is the Most High, the Most Great."]
+ ]},
+{id:"ikhlas",title:"Al-Ikhlas, Sincerity",src:"Qur'an 112",
+ intro:"A short surah on the oneness of Allah.",
+ lines:[
+ ["قُلْ هُوَ اللَّهُ أَحَدٌ","Qul huwa Allahu ahad","Say: He is Allah, the One."],
+ ["اللَّهُ الصَّمَدُ","Allahus-samad","Allah, the Eternal Refuge."],
+ ["لَمْ يَلِدْ وَلَمْ يُولَدْ","Lam yalid wa lam yulad","He neither begets nor was He begotten."],
+ ["وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ","Wa lam yakun lahu kufuwan ahad","And there is none comparable to Him."]
+ ]},
+{id:"raji",title:"To Allah we belong",src:"Qur'an 2:156",
+ intro:"The words of the patient at the moment of loss.",
+ lines:[
+ ["إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ","Inna lillahi wa inna ilayhi raji'un","Indeed we belong to Allah, and indeed to Him we will return."]
+ ]},
+{id:"hashr",title:"Our brothers who went before us",src:"Qur'an 59:10",
+ intro:"A prayer for those who passed before us in faith, and for hearts free of bitterness.",
+ lines:[
+ ["رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ","Rabbanagh-fir lana wa li-ikhwaninal-ladhina sabaquna bil-iman","Our Lord, forgive us and our brothers who went before us in faith,"],
+ ["وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلًّا لِلَّذِينَ آمَنُوا رَبَّنَا إِنَّكَ رَءُوفٌ رَحِيمٌ","Wa la taj'al fi qulubina ghillan lil-ladhina amanu, Rabbana innaka Ra'ufur-Rahim","and do not put in our hearts any resentment toward those who believe. Our Lord, You are Kind and Merciful."]
+ ]},
+{id:"ibrahim",title:"The prayer of Ibrahim",src:"Qur'an 14:41",
+ intro:"A prayer of Prophet Ibrahim, peace be upon him, for himself, his parents and the believers.",
+ lines:[
+ ["رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ","Rabbanagh-fir li wa li-walidayya wa lil-mu'minina yawma yaqumul-hisab","Our Lord, forgive me, my parents and the believers on the Day the reckoning is established."]
+ ]}
+],
+family:[
+{id:"condolence",title:"What Allah took, and what He gave",src:"Sahih al-Bukhari and Sahih Muslim",
+ intro:"A message of comfort taught by the Prophet ﷺ for times of loss.",
+ lines:[
+ ["إِنَّ لِلَّهِ مَا أَخَذَ","Inna lillahi ma akhadh","Indeed, to Allah belongs what He has taken,"],
+ ["وَلَهُ مَا أَعْطَى","Wa lahu ma a'ta","and to Him belongs what He has given,"],
+ ["وَكُلُّ شَيْءٍ عِنْدَهُ بِأَجَلٍ مُسَمًّى","Wa kullu shay'in 'indahu bi-ajalin musamma","and everything with Him has an appointed term."]
+ ]},
+{id:"ajurni",title:"For those left behind",src:"Sahih Muslim",
+ intro:"Taught by the Prophet ﷺ for anyone struck by loss. Say it for yourself, and for every member of this family.",
+ lines:[
+ ["اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي","Allahumma'-jurni fi musibati","O Allah, reward me in my affliction,"],
+ ["وَأَخْلِفْ لِي خَيْرًا مِنْهَا","Wa akhlif li khayran minha","and replace it for me with something better."]
+ ]},
+{id:"sadaqah",title:"Three deeds that do not end",src:"Sahih Muslim",
+ intro:"The reason a family prays. These are the words of the Prophet ﷺ on what still reaches a person after death.",
+ lines:[
+ ["إِذَا مَاتَ الْإِنْسَانُ انْقَطَعَ عَنْهُ عَمَلُهُ","Idha matal-insanu inqata'a 'anhu 'amaluhu","When a person dies, his deeds come to an end,"],
+ ["إِلَّا مِنْ ثَلَاثَةٍ","Illa min thalathah","except for three:"],
+ ["إِلَّا مِنْ صَدَقَةٍ جَارِيَةٍ","Illa min sadaqatin jariyah","ongoing charity,"],
+ ["أَوْ عِلْمٍ يُنْتَفَعُ بِهِ","Aw 'ilmin yuntafa'u bih","or knowledge that is benefited from,"],
+ ["أَوْ وَلَدٍ صَالِحٍ يَدْعُو لَهُ","Aw waladin salihin yad'u lah","or a righteous child who prays for him."]
+ ]}
+]};
+var TABS=[["him","For him"],["quran","From the Qur'an"],["family","For our family"]];
+var ALL_IDS=[];Object.keys(PRAYERS).forEach(function(k){PRAYERS[k].forEach(function(p){ALL_IDS.push(p.id)})});
+
+/* ---------- reader ---------- */
+var prefs=Object.assign({tr:true,en:true,size:1},store.get("abudu:prefs",{}));
+var readSet=store.get("abudu:read",[]).filter(function(x){return ALL_IDS.indexOf(x)>-1});
+var tab="him";
+var ameenCount={};
+var reader=$("#reader"),cards=$("#cards");
+
+function applyPrefs(){
+  reader.dataset.tr=prefs.tr?"on":"off";
+  reader.dataset.en=prefs.en?"on":"off";
+  $("#tTr").setAttribute("aria-pressed",String(prefs.tr));
+  $("#tEn").setAttribute("aria-pressed",String(prefs.en));
+  reader.style.setProperty("--ar-scale",prefs.size);
+  store.set("abudu:prefs",prefs);
+}
+$("#tTr").addEventListener("click",function(){prefs.tr=!prefs.tr;applyPrefs()});
+$("#tEn").addEventListener("click",function(){prefs.en=!prefs.en;applyPrefs()});
+$("#szUp").addEventListener("click",function(){prefs.size=Math.min(1.6,Math.round((prefs.size+.15)*100)/100);applyPrefs()});
+$("#szDown").addEventListener("click",function(){prefs.size=Math.max(.8,Math.round((prefs.size-.15)*100)/100);applyPrefs()});
+
+function updateProgress(){
+  var n=readSet.length,t=ALL_IDS.length;
+  $("#progTxt").textContent=n+" of "+t+" prayers marked as read on this device";
+  $("#progBar").style.width=(t?Math.round(n/t*100):0)+"%";
+}
+$("#progReset").addEventListener("click",function(){
+  readSet=[];store.set("abudu:read",readSet);updateProgress();renderCards();toast("Marks cleared");
+});
+
+function plainText(p){
+  var out=[p.title+" ("+p.src+")",""];
+  p.lines.forEach(function(l){out.push(l[0]);out.push(l[1]);out.push(l[2]);out.push("")});
+  out.push("From the Omilabu Family, for Barrister Abdul Razaq Olufemi Abudu. Ameen.");
+  return out.join("\n");
+}
+function copyText(text){
+  function fallback(){
+    try{
+      var ta=document.createElement("textarea");ta.value=text;ta.setAttribute("readonly","");
+      ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();
+      var ok=document.execCommand("copy");document.body.removeChild(ta);
+      toast(ok?"Copied":"Copy is not available here");
+    }catch(e){toast("Copy is not available here")}
+  }
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){toast("Copied")},fallback);
+    }else fallback();
+  }catch(e){fallback()}
+}
+
+function buildCard(p){
+  var c=el("article","card");c.id="p-"+p.id;
+  var h=el("header");h.append(el("h3",null,p.title),el("span","src",p.src));
+  c.append(h);
+  if(p.intro)c.append(el("p","intro",p.intro));
+  p.lines.forEach(function(l){
+    var d=el("div","line");
+    var ar=el("p","ar",l[0]);ar.lang="ar";ar.dir="rtl";
+    d.append(ar,el("p","tr",l[1]),el("p","en",l[2]));
+    c.append(d);
+  });
+  if(p.note)c.append(el("p","note",p.note));
+  var a=el("div","actions");
+  var am=el("button","abtn ameen",ameenCount[p.id]?"Ameen ×"+ameenCount[p.id]:"Say Ameen");am.type="button";
+  am.addEventListener("click",function(){
+    ameenCount[p.id]=(ameenCount[p.id]||0)+1;am.textContent="Ameen ×"+ameenCount[p.id];
+    if(ameenCount[p.id]===1)toast("Ameen. May Allah accept it for him.");
+  });
+  var rd=el("button","abtn",readSet.indexOf(p.id)>-1?"Marked as read":"Mark as read");rd.type="button";
+  rd.setAttribute("aria-pressed",String(readSet.indexOf(p.id)>-1));
+  rd.addEventListener("click",function(){
+    var i=readSet.indexOf(p.id);
+    if(i>-1)readSet.splice(i,1);else readSet.push(p.id);
+    store.set("abudu:read",readSet);
+    var on=readSet.indexOf(p.id)>-1;
+    rd.setAttribute("aria-pressed",String(on));rd.textContent=on?"Marked as read":"Mark as read";
+    updateProgress();
+  });
+  var cp=el("button","abtn","Copy");cp.type="button";
+  cp.addEventListener("click",function(){copyText(plainText(p))});
+  a.append(am,rd,cp);c.append(a);
+  return c;
+}
+function renderCards(){
+  cards.replaceChildren();
+  PRAYERS[tab].forEach(function(p){cards.append(buildCard(p))});
+}
+function renderTabs(){
+  var tb=$("#tabs");tb.replaceChildren();
+  TABS.forEach(function(t){
+    var b=el("button","tab",t[1]);b.type="button";b.setAttribute("role","tab");
+    b.setAttribute("aria-selected",String(t[0]===tab));b.dataset.key=t[0];
+    b.addEventListener("click",function(){tab=t[0];renderTabs();renderCards()});
+    b.addEventListener("keydown",function(e){
+      if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
+      var idx=TABS.map(function(x){return x[0]}).indexOf(tab);
+      idx=(idx+(e.key==="ArrowRight"?1:TABS.length-1))%TABS.length;
+      tab=TABS[idx][0];renderTabs();renderCards();
+      var nb=$("#tabs [aria-selected='true']");if(nb)nb.focus();
+    });
+    tb.append(b);
+  });
+}
+applyPrefs();renderTabs();renderCards();updateProgress();
+
+/* ---------- dhikr ---------- */
+var DHIKR=[
+ {ar:"سُبْحَانَ اللَّهِ",en:"SubhanAllah",target:33},
+ {ar:"الْحَمْدُ لِلَّهِ",en:"Alhamdulillah",target:33},
+ {ar:"اللَّهُ أَكْبَرُ",en:"Allahu Akbar",target:34},
+ {ar:"أَسْتَغْفِرُ اللَّهَ",en:"Astaghfirullah",target:100},
+ {ar:"لَا إِلَٰهَ إِلَّا اللَّهُ",en:"La ilaha illallah",target:100}
+];
+var dIdx=0,dCount=0,dTotal=store.get("abudu:dhikrTotal",0),CIRC=552.92;
+function drawDhikr(){
+  var d=DHIKR[dIdx];
+  $("#cAr").textContent=d.ar;
+  $("#cNum").textContent=dCount;
+  $("#cOf").textContent="of "+d.target+" · "+d.en;
+  $("#ringFg").style.strokeDashoffset=String(CIRC*(1-Math.min(1,dCount/d.target)));
+  $("#dhTotal").textContent=dTotal===0?"Nothing counted yet on this device":dTotal+" dhikr counted in his name on this device";
+  $("#dhDone").hidden=dCount<d.target;
+  $("#counter").setAttribute("aria-label","Tap to count one. Now at "+dCount+" of "+d.target+" for "+d.en);
+}
+function drawPicks(){
+  var box=$("#dhPick");box.replaceChildren();
+  DHIKR.forEach(function(d,i){
+    var b=el("button","chip",d.en);b.type="button";b.setAttribute("aria-pressed",String(i===dIdx));
+    b.addEventListener("click",function(){dIdx=i;dCount=0;drawPicks();drawDhikr()});
+    box.append(b);
+  });
+}
+$("#counter").addEventListener("click",function(){
+  var d=DHIKR[dIdx];
+  if(dCount>=d.target)return;
+  dCount++;dTotal++;store.set("abudu:dhikrTotal",dTotal);
+  try{if(navigator.vibrate)navigator.vibrate(dCount>=d.target?[30,40,30]:8)}catch(e){}
+  drawDhikr();
+});
+$("#dhReset").addEventListener("click",function(){dCount=0;drawDhikr()});
+drawPicks();drawDhikr();
+
+/* ---------- family wall (Google Form to post, published Google Sheet to read) ---------- */
+/* Fill these in using the README. Leave them empty and the wall stays hidden. */
+var WALL={
+  formPost:"",   /* https://docs.google.com/forms/d/e/FORM_ID/formResponse */
+  formView:"",   /* https://docs.google.com/forms/d/e/FORM_ID/viewform */
+  entryName:"",  /* entry.1111111111 */
+  entryKind:"",  /* entry.2222222222 */
+  entryText:"",  /* entry.3333333333 */
+  csv:""         /* https://docs.google.com/spreadsheets/d/e/LONG_ID/pub?output=csv */
+};
+
+function parseCSV(t){
+  var rows=[],row=[],f="",q=false;
+  for(var i=0;i<t.length;i++){
+    var c=t[i];
+    if(q){
+      if(c==='"'){if(t[i+1]==='"'){f+='"';i++}else q=false}else f+=c;
+    }else if(c==='"'){q=true}
+    else if(c===","){row.push(f);f=""}
+    else if(c==="\n"||c==="\r"){if(c==="\r"&&t[i+1]==="\n")i++;row.push(f);f="";rows.push(row);row=[]}
+    else f+=c;
+  }
+  if(f!==""||row.length){row.push(f);rows.push(row)}
+  return rows;
+}
+function prettyDate(ts){
+  var d=new Date(ts);
+  if(!isNaN(d.getTime())){try{return d.toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"})}catch(e){}}
+  return String(ts||"").split(" ")[0];
+}
+function renderWall(items){
+  var list=$("#wallList");list.replaceChildren();
+  if(!items.length){
+    var e=el("div","empty");
+    e.append(el("strong",null,"Nothing here yet"),document.createTextNode("The first du'a written on this wall will appear here for the whole family to read."));
+    list.append(e);return;
+  }
+  items.slice(0,100).forEach(function(it){
+    var d=el("article","entry");
+    d.append(el("span","k",String(it.kind||"A du'a").slice(0,40)));
+    d.append(el("p",null,String(it.text||"").slice(0,600)));
+    var who=String(it.name||"").trim().slice(0,80)||"A member of the family";
+    d.append(el("p","by",who+(it.when?" · "+it.when:"")));
+    list.append(d);
+  });
+}
+
+(function initWall(){
+  if(!(WALL.formPost&&WALL.entryName&&WALL.entryKind&&WALL.entryText))return;
+  ["#wall","#wallRule","#navWall","#ctaWall"].forEach(function(id){var n=$(id);if(n)n.hidden=false});
+  if(WALL.formView){var a=$("#wallFormLink");a.href=WALL.formView;a.hidden=false}
+
+  var fetched=[],mine=[];
+  function draw(){
+    var shown=mine.filter(function(m){return !fetched.some(function(f){return f.text===m.text})}).concat(fetched);
+    renderWall(shown);
+  }
+  function load(){
+    if(!WALL.csv)return;
+    fetch(WALL.csv,{cache:"no-store"}).then(function(r){return r.ok?r.text():Promise.reject()}).then(function(t){
+      var rows=parseCSV(t).slice(1);
+      fetched=rows.filter(function(r){return r[3]&&r[3].trim()}).map(function(r){
+        return {when:prettyDate(r[0]),name:r[1]||"",kind:r[2]||"",text:r[3]||""};
+      }).reverse();
+      draw();
+    }).catch(function(){});
+  }
+  load();
+
+  var wText=$("#wText");
+  wText.addEventListener("input",function(){$("#wCount").textContent=wText.value.length+" / 500"});
+  var lastSent=0;
+  $("#wallForm").addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var text=wText.value.trim();
+    if(!text){toast("Write a few words first");wText.focus();return}
+    if(Date.now()-lastSent<15000){toast("Please wait a moment before sending another");return}
+    var name=$("#wName").value.trim().slice(0,60),kind=$("#wKind").value;
+    var btn=$("#wSend");btn.disabled=true;
+    var body=new URLSearchParams();
+    body.append(WALL.entryName,name);body.append(WALL.entryKind,kind);body.append(WALL.entryText,text.slice(0,500));
+    fetch(WALL.formPost,{method:"POST",mode:"no-cors",body:body}).then(function(){
+      lastSent=Date.now();
+      mine.unshift({when:"just now",name:name,kind:kind,text:text.slice(0,500)});
+      draw();
+      wText.value="";$("#wCount").textContent="0 / 500";
+      toast("Left on the wall. Ameen.");
+    }).catch(function(){
+      toast("Could not send that. Check your connection and try again.");
+    }).then(function(){btn.disabled=false});
+  });
+})();
+
+})();
+</script>
+
+</body>
+</html>
